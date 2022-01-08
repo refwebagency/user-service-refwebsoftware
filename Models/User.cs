@@ -27,10 +27,11 @@ namespace UserService.Models
         public string Password { get; set; }
 
         [Required]
-        public string Experience { get; set; }
+        public int Experience { get; set; }
 
-        // public Meet 
+        public int MeetId { get; set; } 
 
-        // public Specialization
+        [Required]
+        public int SpecializationId { get; set; }
     }
 }

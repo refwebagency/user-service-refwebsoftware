@@ -11,6 +11,8 @@ namespace UserService.Data
 
         User GetUserById(int id);
 
+        IEnumerable<User> GetUserByExpIdAndSpecId(int Xp, int SpecId);
+
         void CreateUser(User user);
 
         void UpdateUserById(int id);

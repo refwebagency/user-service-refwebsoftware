@@ -1051,19 +1051,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Maxime\\.nuget\\packages\\": {}
+    "C:\\Users\\wuill\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Maxime\\Desktop\\REF-WEB\\UserService\\UserService.csproj",
+      "projectUniqueName": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\user-service-refwebsoftware\\UserService.csproj",
       "projectName": "UserService",
-      "projectPath": "C:\\Users\\Maxime\\Desktop\\REF-WEB\\UserService\\UserService.csproj",
-      "packagesPath": "C:\\Users\\Maxime\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Maxime\\Desktop\\REF-WEB\\UserService\\obj\\",
+      "projectPath": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\user-service-refwebsoftware\\UserService.csproj",
+      "packagesPath": "C:\\Users\\wuill\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\user-service-refwebsoftware\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Maxime\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\wuill\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"

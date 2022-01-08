@@ -5,6 +5,7 @@ using UserService.Models;
 using UserService.Data;
 using UserService.Dtos;
 using System;
+using System.Linq;
 
 namespace UserService.Controllers
 {
@@ -59,6 +60,38 @@ namespace UserService.Controllers
 
             // La méthode Ok retourne un statut 200 et l'user avec l'id demandée.
             return Ok(_mapper.Map<UserReadDto>(userItem));
+        }
+
+
+        [HttpGet("{Xp}/{SpecId}", Name = "GetUserByExpIdAndSpecId")]
+
+        // On appelle la classe abstraite ActionResult pour avoir un retour
+        // puis la classe UserReadDto pour suivre le modèle du dto
+        // et on crée la fonction GetUserById().
+        public ActionResult<IEnumerable<UserReadDto>> GetUserByExpIdAndSpecId(int Xp, int SpecId)
+        {
+            // On applique la méthode GetUserById() de la classe UserRepo 
+            // et on stocke le résultat dans la variable userItem.
+            var userItems = _repository.GetUserByExpIdAndSpecId(Xp, SpecId);
+
+            // On vérifie que userItem ne soit pas vide.
+            Console.WriteLine(userItems.Count());
+
+            while (userItems.Count() == 0)
+            {
+                
+                Xp -= 1;
+                Console.WriteLine("Xp " + Xp);
+                userItems = _repository.GetUserByExpIdAndSpecId(Xp, SpecId);
+
+                if ( Xp == -1)
+                {
+                    return NotFound();
+                    break;
+                }
+            }
+
+            return Ok(_mapper.Map<IEnumerable<UserReadDto>>(userItems));
         }
 
        

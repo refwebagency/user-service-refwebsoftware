@@ -43,6 +43,11 @@ namespace UserService.Data
             return _context.user.Find(id);
         }
 
+        public IEnumerable<User> GetUserByExpIdAndSpecId(int Xp, int SpecId)
+        {
+            return _context.user.Where(u => u.Experience == Xp && u.SpecializationId == SpecId).ToList();
+        }
+        
         public void UpdateUserById(int id)
         {
             // On stocke le user recherché avec la méthode Find() dans la variable userItem.

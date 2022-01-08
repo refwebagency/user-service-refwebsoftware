@@ -16,6 +16,8 @@ namespace UserService.Dtos
 
         public string Password { get; set; }
 
-        public string Experience { get; set; }
+        public int Experience { get; set; }
+
+        public int SpecializationId { get; set; }
     }
 }
