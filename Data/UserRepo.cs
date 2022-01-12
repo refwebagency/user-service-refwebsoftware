@@ -47,6 +47,12 @@ namespace UserService.Data
         {
             return _context.user.Where(u => u.Experience == Xp && u.SpecializationId == SpecId).ToList();
         }
+
+        public IEnumerable<User> GetUserByMeetId(int id)
+        {
+            // La méthode ToList() crée une liste des données.
+            return _context.user.Where(u => u.MeetId == id ).ToList();
+        }
         
         public void UpdateUserById(int id)
         {

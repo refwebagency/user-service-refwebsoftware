@@ -62,6 +62,27 @@ namespace UserService.Controllers
             return Ok(_mapper.Map<UserReadDto>(userItem));
         }
 
+        [HttpGet("meet/id", Name = "GetUserByMeetId")]
+
+        // On appelle la classe abstraite ActionResult pour avoir un retour
+        // puis la classe UserReadDto pour suivre le modèle du dto
+        // et on crée la fonction GetUserById().
+        public ActionResult<IEnumerable<UserReadDto>> GetUserByMeetId(int id)
+        {
+            // On applique la méthode GetUserById() de la classe UserRepo 
+            // et on stocke le résultat dans la variable userItem.
+            var userItem = _repository.GetUserByMeetId(id);
+
+            // On vérifie que userItem ne soit pas vide.
+            if (userItem == null)
+            {
+                return NotFound();
+            }
+
+            // La méthode Ok retourne un statut 200 et l'user avec l'id demandée.
+            return Ok(_mapper.Map<IEnumerable<UserReadDto>>(userItem));
+        }
+
 
         [HttpGet("{Xp}/{SpecId}", Name = "GetUserByExpIdAndSpecId")]
 
