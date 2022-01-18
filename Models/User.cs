@@ -33,5 +33,8 @@ namespace UserService.Models
 
         [Required]
         public int SpecializationId { get; set; }
+
+        [Required]
+        public Specialization Specialization { get; set; }
     }
 }

@@ -11,6 +11,8 @@ namespace UserService.Data
 
         User GetUserById(int id);
 
+        Specialization GetSpecializationById(int id);
+
         IEnumerable<User> GetUserByMeetId(int id);
 
         IEnumerable<User> GetUserByExpIdAndSpecId(int Xp, int SpecId);

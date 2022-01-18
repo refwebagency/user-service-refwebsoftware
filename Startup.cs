@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using UserService.Controllers;
 using UserService.Data;
 
 namespace UserService
@@ -31,6 +32,7 @@ namespace UserService
             services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("user"));
 
             services.AddScoped<IUserRepo, UserRepo>();
+            services.AddHttpClient<UserController>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers();

@@ -6,6 +6,9 @@ using UserService.Data;
 using UserService.Dtos;
 using System;
 using System.Linq;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace UserService.Controllers
 {
@@ -18,11 +21,13 @@ namespace UserService.Controllers
         // L'attribut booléen readlony rend l'élément non mutable, l'utilisateur ne peut pas le modifier.
         private readonly IUserRepo _repository;
         private readonly IMapper _mapper;
+        private readonly HttpClient _HttpClient;
 
-        public UserController(IUserRepo repository, IMapper mapper)
+        public UserController(IUserRepo repository, IMapper mapper, HttpClient HttpClient)
         {
             _repository = repository;
             _mapper = mapper;
+            _HttpClient = HttpClient;
         }
 
         [HttpGet]
@@ -91,31 +96,23 @@ namespace UserService.Controllers
         // et on crée la fonction GetUserById().
         public ActionResult<IEnumerable<UserReadDto>> GetUserByExpIdAndSpecId(int Xp, int SpecId)
         {
-            // On applique la méthode GetUserById() de la classe UserRepo 
-            // et on stocke le résultat dans la variable userItem.
             var userItems = _repository.GetUserByExpIdAndSpecId(Xp, SpecId);
-
-            // On vérifie que userItem ne soit pas vide.
-            Console.WriteLine(userItems.Count());
 
             while (userItems.Count() == 0)
             {
-                
                 Xp -= 1;
-                Console.WriteLine("Xp " + Xp);
                 userItems = _repository.GetUserByExpIdAndSpecId(Xp, SpecId);
 
-                if ( Xp == -1)
+                if (Xp == -1)
                 {
                     return NotFound();
-                    break;
                 }
             }
 
             return Ok(_mapper.Map<IEnumerable<UserReadDto>>(userItems));
         }
 
-       
+
         [HttpPut("{id}", Name = "UpdateUserById")]
 
         // On appelle la classe abstraite ActionResult pour avoir un retour
@@ -136,7 +133,7 @@ namespace UserService.Controllers
             {
                 return NotFound();
             }
-                
+
             // On applique la méthode UpdateUserById de la classe UserRepo.
             _repository.UpdateUserById(id);
 
@@ -149,47 +146,51 @@ namespace UserService.Controllers
             return CreatedAtRoute(nameof(GetUserById), new { id = updateUser.Id }, updateUser);
         }
 
-        
-        [HttpPost]
 
-        // On appelle la classe abstraite ActionResult pour avoir un retour
-        // puis la classe UserCreateDto pour suivre le modèle du dto
-        // et on crée la fonction CreateUser().
-        public ActionResult<UserReadDto> CreateUser(UserCreateDto createUserDto)
+        [HttpPost]
+        public async Task<ActionResult<UserReadDto>> CreateUser(UserCreateDto createUserDto)
         {
-            // On stocke le modèle User dans la variable userModel.
             var userModel = _mapper.Map<User>(createUserDto);
 
             // stocke le mail et soubscription à la méthode qui verifie si l'email déjà existant
             var mail = _repository.VerifyUserByEmail(userModel.Email);
-            //Console.WriteLine(toto);
-            
+
             //si email déjà existant retourne NotFound avec message d'erreur
-            if(mail == true)
+            if (mail == true)
             {
                 Console.WriteLine("Un compte contenant cet émail est déjà éxistant");
                 return NotFound();
             }
             else
             {
+                var getSpecialization = await _HttpClient.GetAsync("https://localhost:2222/Specialization/" + userModel.SpecializationId);
 
-             //Sinon crée un nouvel utilisateur        
-            _repository.CreateUser(userModel);           
-            _repository.SaveChanges();
+                var deserializeSpecialization = JsonConvert.DeserializeObject<CreateSpecializationDTO>(
+                    await getSpecialization.Content.ReadAsStringAsync());
 
-            // On stocke le résultat de l'user nouvellement crée dans la variable readUser.
-            
-            var readUser = _mapper.Map<UserReadDto>(userModel);
-            
-            // La CreatedAtRoute crée une route.
-            // Cette méthode est destinée à renvoyer un URI
-            // à la ressource nouvellement créée lorsqu'on appelle une méthode POST ou PUT pour stocker un nouvel objet.
-            return CreatedAtRoute(nameof(GetUserById), new { id = readUser.Id }, readUser);
-            
+                var SpecializationDTO = _mapper.Map<Specialization>(deserializeSpecialization);
+                
+                var specialization = _repository.GetSpecializationById(SpecializationDTO.Id);
+
+                if (specialization == null) userModel.Specialization = SpecializationDTO; else userModel.Specialization = specialization;
+
+                //Sinon crée un nouvel utilisateur        
+                _repository.CreateUser(userModel);
+                _repository.SaveChanges();
+
+                // On stocke le résultat de l'user nouvellement crée dans la variable readUser.
+
+                var readUser = _mapper.Map<UserReadDto>(userModel);
+
+                // La CreatedAtRoute crée une route.
+                // Cette méthode est destinée à renvoyer un URI
+                // à la ressource nouvellement créée lorsqu'on appelle une méthode POST ou PUT pour stocker un nouvel objet.
+                return CreatedAtRoute(nameof(GetUserById), new { id = readUser.Id }, readUser);
+
             }
         }
 
-       
+
         [HttpDelete("{id}")]
 
         // On appelle la classe abstraite ActionResult pour avoir un retour

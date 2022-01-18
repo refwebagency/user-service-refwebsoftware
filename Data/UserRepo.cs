@@ -33,6 +33,7 @@ namespace UserService.Data
         public IEnumerable<User> GetAllUsers()
         {
             // La méthode ToList() crée une liste des données.
+            _context.Specialization.ToList();
             return _context.user.ToList();
         }
 
@@ -40,17 +41,25 @@ namespace UserService.Data
         {
             // La méthode Find() recherche l'élément correspondant au paramètre spécifié.
             // Et on le retourne.
+            _context.Specialization.ToList();
             return _context.user.Find(id);
+        }
+
+        public Specialization GetSpecializationById(int id)
+        {
+            return _context.Specialization.FirstOrDefault(x => x.Id == id);
         }
 
         public IEnumerable<User> GetUserByExpIdAndSpecId(int Xp, int SpecId)
         {
+            _context.Specialization.ToList();
             return _context.user.Where(u => u.Experience == Xp && u.SpecializationId == SpecId).ToList();
         }
 
         public IEnumerable<User> GetUserByMeetId(int id)
         {
             // La méthode ToList() crée une liste des données.
+            _context.Specialization.ToList();
             return _context.user.Where(u => u.MeetId == id ).ToList();
         }
         

@@ -72,3 +72,4 @@ C:\Users\wuill\OneDrive\Documents\GitHub\user-service-refwebsoftware\obj\Debug\n
 C:\Users\wuill\OneDrive\Documents\GitHub\user-service-refwebsoftware\obj\Debug\net5.0\ref\UserService.dll
 C:\Users\wuill\OneDrive\Documents\GitHub\user-service-refwebsoftware\obj\Debug\net5.0\UserService.pdb
 C:\Users\wuill\OneDrive\Documents\GitHub\user-service-refwebsoftware\obj\Debug\net5.0\UserService.genruntimeconfig.cache
+C:\Users\wuill\OneDrive\Documents\GitHub\user-service-refwebsoftware\bin\Debug\net5.0\Newtonsoft.Json.dll

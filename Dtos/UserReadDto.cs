@@ -1,3 +1,5 @@
+using UserService.Models;
+
 namespace UserService.Dtos
 {
     public class UserReadDto
@@ -19,5 +21,7 @@ namespace UserService.Dtos
         public int Experience { get; set; }
 
         public int SpecializationId { get; set; }
+
+        public Specialization Specialization { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using UserService.Models;
 
 namespace UserService.Dtos
 {
@@ -28,5 +29,8 @@ namespace UserService.Dtos
 
         [Required]
         public int SpecializationId { get; set; }
+
+        [Required]
+        public Specialization Specialization { get; set; }
     }
 }

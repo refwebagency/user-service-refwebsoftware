@@ -9,5 +9,7 @@ namespace UserService.Data
         public AppDbContext(DbContextOptions<AppDbContext> opt) : base(opt){}
 
         public DbSet<User> user {get; set;}
+
+        public DbSet<Specialization> Specialization {get; set;}
     }
 }
