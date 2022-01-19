@@ -62,7 +62,6 @@ namespace UserService.Controllers
             {
                 return NotFound();
             }
-
             // La méthode Ok retourne un statut 200 et l'user avec l'id demandée.
             return Ok(_mapper.Map<UserReadDto>(userItem));
         }
@@ -108,8 +107,23 @@ namespace UserService.Controllers
                     return NotFound();
                 }
             }
+            //Console.WriteLine(userItems.Count());
+            if(userItems.Count() >= 2)
+            {
+                // méthode pour avoir un retour aleatoire
+                var rand = new Random();
+                // attribue comme valeur un nombre aleatoire en fonction de la longueur du tableau userItems
+                var randUserNumber = rand.Next(0, userItems.Count());
+                // ElementAt me permet de recuperer un objet de mon Enumerable
+                var userItem = userItems.ElementAt(randUserNumber);
+                //Console.WriteLine(userItem.Id);
 
-            return Ok(_mapper.Map<IEnumerable<UserReadDto>>(userItems));
+                // remapping de l'objet puisque ce n'est plus un Enumerable
+                return Ok(_mapper.Map<UserReadDto>(userItem));
+            }
+
+            return NotFound();   
+            
         }
 
 
@@ -163,7 +177,7 @@ namespace UserService.Controllers
             }
             else
             {
-                var getSpecialization = await _HttpClient.GetAsync("https://localhost:2222/Specialization/" + userModel.SpecializationId);
+                var getSpecialization = await _HttpClient.GetAsync("https://localhost:4001/Specialization/" + userModel.SpecializationId);
 
                 var deserializeSpecialization = JsonConvert.DeserializeObject<CreateSpecializationDTO>(
                     await getSpecialization.Content.ReadAsStringAsync());
