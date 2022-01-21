@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Maxime\\Desktop\\user-service-refwebsoftware\\UserService.csproj": {}
+    "C:\\Users\\Maxime\\Desktop\\RefWebLogiciel - Services\\user-service-refwebsoftware\\UserService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Maxime\\Desktop\\user-service-refwebsoftware\\UserService.csproj": {
+    "C:\\Users\\Maxime\\Desktop\\RefWebLogiciel - Services\\user-service-refwebsoftware\\UserService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Maxime\\Desktop\\user-service-refwebsoftware\\UserService.csproj",
+        "projectUniqueName": "C:\\Users\\Maxime\\Desktop\\RefWebLogiciel - Services\\user-service-refwebsoftware\\UserService.csproj",
         "projectName": "UserService",
-        "projectPath": "C:\\Users\\Maxime\\Desktop\\user-service-refwebsoftware\\UserService.csproj",
+        "projectPath": "C:\\Users\\Maxime\\Desktop\\RefWebLogiciel - Services\\user-service-refwebsoftware\\UserService.csproj",
         "packagesPath": "C:\\Users\\Maxime\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Maxime\\Desktop\\user-service-refwebsoftware\\obj\\",
+        "outputPath": "C:\\Users\\Maxime\\Desktop\\RefWebLogiciel - Services\\user-service-refwebsoftware\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Maxime\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -59,6 +59,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.2.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
