@@ -9,6 +9,7 @@ using System.Linq;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
+using user_service_refwebsoftware.AsyncDataClient;
 
 namespace UserService.Controllers
 {
@@ -22,12 +23,14 @@ namespace UserService.Controllers
         private readonly IUserRepo _repository;
         private readonly IMapper _mapper;
         private readonly HttpClient _HttpClient;
+        private readonly IMessageBusClient _messageBusClient;
 
-        public UserController(IUserRepo repository, IMapper mapper, HttpClient HttpClient)
+        public UserController(IUserRepo repository, IMapper mapper, HttpClient HttpClient, IMessageBusClient messageBusClient)
         {
             _repository = repository;
             _mapper = mapper;
             _HttpClient = HttpClient;
+            _messageBusClient = messageBusClient;
         }
 
         [HttpGet]
@@ -56,6 +59,10 @@ namespace UserService.Controllers
             // On applique la méthode GetUserById() de la classe UserRepo 
             // et on stocke le résultat dans la variable userItem.
             var userItem = _repository.GetUserById(id);
+
+            var test = _repository.GetSpecializationById(userItem.SpecializationId);
+
+            Console.WriteLine(test.Name);
 
             // On vérifie que userItem ne soit pas vide.
             if (userItem == null)
@@ -153,6 +160,27 @@ namespace UserService.Controllers
 
             // On sauvegarde les changements.
             _repository.SaveChanges();
+
+            try
+            {
+
+              
+                //var clientItemUpdated = _repository.GetClientById(id); 
+                //On envoie les données du client mis à jour avec les données du DTO
+                var userItemUpdated = _mapper.Map<UserUpdateAsyncDto>(userItem);
+
+                // On dit que l'event est égal à "Client_Updated"
+                userItemUpdated.Event = "User_Updated";
+ 
+
+                // On appelle la méthode qui se trouve dans MessageBusClient
+                _messageBusClient.UpdatedUser(userItemUpdated);
+            }
+
+            catch (System.Exception ex)
+            {
+                Console.WriteLine("Error: Async" + ex.Message);
+            }
 
             // La CreatedAtRoute crée une route.
             // Cette méthode est destinée à renvoyer un URI

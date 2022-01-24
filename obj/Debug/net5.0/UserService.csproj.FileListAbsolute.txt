@@ -150,3 +150,4 @@ C:\Users\Maxime\Desktop\RefWebLogiciel - Services\user-service-refwebsoftware\ob
 C:\Users\Maxime\Desktop\RefWebLogiciel - Services\user-service-refwebsoftware\obj\Debug\net5.0\ref\UserService.dll
 C:\Users\Maxime\Desktop\RefWebLogiciel - Services\user-service-refwebsoftware\obj\Debug\net5.0\UserService.pdb
 C:\Users\Maxime\Desktop\RefWebLogiciel - Services\user-service-refwebsoftware\obj\Debug\net5.0\UserService.genruntimeconfig.cache
+C:\Users\Maxime\Desktop\RefWebLogiciel - Services\user-service-refwebsoftware\bin\Debug\net5.0\appsettings.Production.json

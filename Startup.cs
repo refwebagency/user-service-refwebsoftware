@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using user_service_refwebsoftware.AsyncDataClient;
 using UserService.Controllers;
 using UserService.Data;
 
@@ -32,6 +33,7 @@ namespace UserService
             services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("user"));
 
             services.AddScoped<IUserRepo, UserRepo>();
+            services.AddSingleton<IMessageBusClient, MessageBusClient>();
             services.AddHttpClient<UserController>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
