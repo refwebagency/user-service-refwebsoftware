@@ -60,9 +60,9 @@ namespace UserService.Controllers
             // et on stocke le résultat dans la variable userItem.
             var userItem = _repository.GetUserById(id);
 
-            var test = _repository.GetSpecializationById(userItem.SpecializationId);
+            // var test = _repository.GetSpecializationById(userItem.SpecializationId);
 
-            Console.WriteLine(test.Name);
+            // Console.WriteLine(test.Name);
 
             // On vérifie que userItem ne soit pas vide.
             if (userItem == null)

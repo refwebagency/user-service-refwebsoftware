@@ -3,6 +3,8 @@ namespace UserService.Dtos
     public class UserUpdatedDto
     {
 
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public string LastName { get; set; }
@@ -12,12 +14,6 @@ namespace UserService.Dtos
         public string Phone { get; set; }
 
         public string Email { get; set; }
-
-        public string Password { get; set; }
-
-        public int Experience { get; set; }
-
-        public int SpecializationId { get; set; }
 
     }
 }
