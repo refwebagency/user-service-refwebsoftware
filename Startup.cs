@@ -13,6 +13,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using user_service_refwebsoftware.AsyncDataClient;
+using user_service_refwebsoftware.AsyncDataServices;
+using user_service_refwebsoftware.EventProcessing;
 using UserService.Controllers;
 using UserService.Data;
 
@@ -31,11 +33,12 @@ namespace UserService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("user"));
-
+            services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("Specialization"));
             services.AddScoped<IUserRepo, UserRepo>();
             services.AddSingleton<IMessageBusClient, MessageBusClient>();
             services.AddHttpClient<UserController>();
-
+            services.AddHostedService<MessageBusSubscriber>();
+            services.AddTransient<IEventProcessor, EventProcessor>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers();
             services.AddSwaggerGen(c =>

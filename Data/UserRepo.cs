@@ -30,6 +30,23 @@ namespace UserService.Data
                 throw new ArgumentNullException(nameof(user));
             }
         }
+
+        // Pour rajouter une nouvelle specialisation
+        public void CreateSpecialization(Specialization specialization)
+        {
+            // On vérifie que les données lors de la création d'une specialisation ne soient pas nulles.
+            if(specialization != null)
+            {
+                // La méthode Add() ajoute un objet.
+                _context.Specialization.Add(specialization);
+            }
+            else 
+            {
+                // Sinon on retourne un message d'erreur.
+                throw new ArgumentNullException(nameof(specialization));
+            }
+        }
+
         public IEnumerable<User> GetAllUsers()
         {
             // La méthode ToList() crée une liste des données.
@@ -48,6 +65,11 @@ namespace UserService.Data
         public Specialization GetSpecializationById(int id)
         {
             return _context.Specialization.FirstOrDefault(x => x.Id == id);
+        }
+
+        public bool IfSpecializationExist(int id)
+        {
+            return _context.Specialization.Any(x => x.Id == id);
         }
 
         public IEnumerable<User> GetUserByExpIdAndSpecId(int Xp, int SpecId)

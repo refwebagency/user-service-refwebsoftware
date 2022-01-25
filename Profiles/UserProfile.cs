@@ -19,6 +19,11 @@ namespace UserService.Profiles
             // Partie RabbitMQ
             CreateMap<User, UserUpdatedDto>();
             CreateMap<User, UserUpdateAsyncDto>();
+
+            CreateMap<PublishedSpecializationDTO, Specialization>();
+            CreateMap<Specialization, PublishedSpecializationDTO>();
+
+            CreateMap<UpdatedSpecializationDTO, Specialization>();
         }
     }
 }

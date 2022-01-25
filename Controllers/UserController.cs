@@ -73,6 +73,30 @@ namespace UserService.Controllers
             return Ok(_mapper.Map<UserReadDto>(userItem));
         }
 
+        [HttpGet("spec/{id}", Name = "GetSpecById")]
+
+        // On appelle la classe abstraite ActionResult pour avoir un retour
+        // puis la classe UserReadDto pour suivre le modèle du dto
+        // et on crée la fonction GetUserById().
+        public ActionResult<UserReadDto> GetSpecById(int id)
+        {
+            // On applique la méthode GetUserById() de la classe UserRepo 
+            // et on stocke le résultat dans la variable userItem.
+            var userItem = _repository.GetSpecializationById(id);
+
+            // var test = _repository.GetSpecializationById(userItem.SpecializationId);
+
+            // Console.WriteLine(test.Name);
+
+            // On vérifie que userItem ne soit pas vide.
+            if (userItem == null)
+            {
+                return NotFound();
+            }
+            // La méthode Ok retourne un statut 200 et l'user avec l'id demandée.
+            return Ok(_mapper.Map<ReadSpecializationDTO>(userItem));
+        }
+
         [HttpGet("meet/id", Name = "GetUserByMeetId")]
 
         // On appelle la classe abstraite ActionResult pour avoir un retour
@@ -205,6 +229,10 @@ namespace UserService.Controllers
             }
             else
             {
+                //verifie que la specialisation est existante, sinon requete en async sur SpecializationService
+                if(!_repository.IfSpecializationExist(userModel.SpecializationId))
+                Console.WriteLine(userModel.SpecializationId);
+                {
                 var getSpecialization = await _HttpClient.GetAsync("https://localhost:4001/Specialization/" + userModel.SpecializationId);
 
                 var deserializeSpecialization = JsonConvert.DeserializeObject<CreateSpecializationDTO>(
@@ -215,11 +243,12 @@ namespace UserService.Controllers
                 var specialization = _repository.GetSpecializationById(SpecializationDTO.Id);
 
                 if (specialization == null) userModel.Specialization = SpecializationDTO; else userModel.Specialization = specialization;
-
+                }
+               Console.WriteLine(userModel.SpecializationId);
                 //Sinon crée un nouvel utilisateur        
                 _repository.CreateUser(userModel);
                 _repository.SaveChanges();
-
+                Console.WriteLine(userModel.SpecializationId);
                 // On stocke le résultat de l'user nouvellement crée dans la variable readUser.
 
                 var readUser = _mapper.Map<UserReadDto>(userModel);

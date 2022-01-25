@@ -13,11 +13,15 @@ namespace UserService.Data
 
         Specialization GetSpecializationById(int id);
 
+        public bool IfSpecializationExist(int id);
+
         IEnumerable<User> GetUserByMeetId(int id);
 
         IEnumerable<User> GetUserByExpIdAndSpecId(int Xp, int SpecId);
 
         void CreateUser(User user);
+
+        void CreateSpecialization(Specialization specialization);
 
         void UpdateUserById(int id);
 
