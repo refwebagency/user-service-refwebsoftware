@@ -139,7 +139,7 @@ namespace UserService.Controllers
                 }
             }
             //Console.WriteLine(userItems.Count());
-            if(userItems.Count() >= 2)
+            if(userItems.Count() >= 1)
             {
                 // méthode pour avoir un retour aleatoire
                 var rand = new Random();
