@@ -73,6 +73,30 @@ namespace UserService.Controllers
             return Ok(_mapper.Map<UserReadDto>(userItem));
         }
 
+        [HttpGet("email/{email}", Name = "GetUserByEmail")]
+
+        // On appelle la classe abstraite ActionResult pour avoir un retour
+        // puis la classe UserReadDto pour suivre le modèle du dto
+        // et on crée la fonction GetUserById().
+        public ActionResult<UserReadDto> GetUserByEmail(string email)
+        {
+            // On applique la méthode GetUserById() de la classe UserRepo 
+            // et on stocke le résultat dans la variable userItem.
+            var userItem = _repository.GetUserByEmail(email);
+
+            // var test = _repository.GetSpecializationById(userItem.SpecializationId);
+
+            // Console.WriteLine(test.Name);
+
+            // On vérifie que userItem ne soit pas vide.
+            if (userItem == null)
+            {
+                return NotFound();
+            }
+            // La méthode Ok retourne un statut 200 et l'user avec l'id demandée.
+            return Ok(_mapper.Map<UserReadDto>(userItem));
+        }
+
         [HttpGet("spec/{id}", Name = "GetSpecById")]
 
         // On appelle la classe abstraite ActionResult pour avoir un retour
@@ -97,7 +121,7 @@ namespace UserService.Controllers
             return Ok(_mapper.Map<ReadSpecializationDTO>(userItem));
         }
 
-        [HttpGet("meet/id", Name = "GetUserByMeetId")]
+        [HttpGet("meet/{id}", Name = "GetUserByMeetId")]
 
         // On appelle la classe abstraite ActionResult pour avoir un retour
         // puis la classe UserReadDto pour suivre le modèle du dto

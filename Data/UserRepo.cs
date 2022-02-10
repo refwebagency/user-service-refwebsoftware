@@ -62,6 +62,14 @@ namespace UserService.Data
             return _context.user.Find(id);
         }
 
+        public User GetUserByEmail(string email)
+        {
+            // La méthode Find() recherche l'élément correspondant au paramètre spécifié.
+            // Et on le retourne.
+            _context.Specialization.ToList();
+            return _context.user.FirstOrDefault(u => u.Email == email);
+        }
+
         public Specialization GetSpecializationById(int id)
         {
             return _context.Specialization.FirstOrDefault(x => x.Id == id);

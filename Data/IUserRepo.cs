@@ -11,6 +11,8 @@ namespace UserService.Data
 
         User GetUserById(int id);
 
+        User GetUserByEmail(string email);
+
         Specialization GetSpecializationById(int id);
 
         public bool IfSpecializationExist(int id);

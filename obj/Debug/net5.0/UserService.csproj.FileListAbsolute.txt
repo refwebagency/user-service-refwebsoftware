@@ -153,3 +153,43 @@ C:\Users\Maxime\Desktop\RefWebLogiciel - Services\user-service-refwebsoftware\ob
 C:\Users\Maxime\Desktop\RefWebLogiciel - Services\user-service-refwebsoftware\bin\Debug\net5.0\appsettings.Production.json
 C:\Users\wuill\OneDrive\Documents\GitHub\user-service-refwebsoftware\bin\Debug\net5.0\appsettings.Production.json
 C:\Users\wuill\OneDrive\Documents\GitHub\user-service-refwebsoftware\bin\Debug\net5.0\RabbitMQ.Client.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\appsettings.json
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\appsettings.Production.json
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\UserService.exe
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\UserService.deps.json
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\UserService.runtimeconfig.json
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\UserService.runtimeconfig.dev.json
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\UserService.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\ref\UserService.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\UserService.pdb
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\Humanizer.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\RabbitMQ.Client.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\obj\Debug\net5.0\UserService.csproj.AssemblyReference.cache
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\obj\Debug\net5.0\UserService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\obj\Debug\net5.0\UserService.AssemblyInfoInputs.cache
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\obj\Debug\net5.0\UserService.AssemblyInfo.cs
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\obj\Debug\net5.0\UserService.csproj.CoreCompileInputs.cache
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\obj\Debug\net5.0\UserService.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\obj\Debug\net5.0\UserService.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\obj\Debug\net5.0\staticwebassets\UserService.StaticWebAssets.Manifest.cache
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\obj\Debug\net5.0\staticwebassets\UserService.StaticWebAssets.xml
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\obj\Debug\net5.0\scopedcss\bundle\UserService.styles.css
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\obj\Debug\net5.0\UserService.RazorTargetAssemblyInfo.cache
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\obj\Debug\net5.0\UserService.csproj.CopyComplete
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\obj\Debug\net5.0\UserService.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\obj\Debug\net5.0\ref\UserService.dll
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\obj\Debug\net5.0\UserService.pdb
+C:\Users\nicor\Bureau\Stage Dreamoove - RefWeb\Ref-Web\user-service-refwebsoftware\obj\Debug\net5.0\UserService.genruntimeconfig.cache
